@@ -12,12 +12,6 @@ class MySuite extends munit.FunSuite {
     val expected = List()
     assertEquals(obtained, expected)
   }
-  test("Tree to BST") {
-    var tree: Tree[Int] = Tree.Branch(Tree.Branch(Tree.Leaf(5), Tree.Leaf(4), 3), Tree.Leaf(1), 2)
-    val obtained = Tree.BstToList(Option(Tree.makeBst(tree)),List())
-    val expected = List(1, 2, 3, 4, 5)
-    assertEquals(obtained, expected)
-  }
   test("size of tree") {
     var tree: Tree[Int] = Tree.Branch(Tree.Branch(Tree.Leaf(5), Tree.Leaf(4), 3), Tree.Leaf(1), 2)
     val obtained = Tree.size(tree)
@@ -32,13 +26,13 @@ class MySuite extends munit.FunSuite {
   }
   test("list to tree") {
     var new_list = List(3, 2, 8, 9, -1, 0, 10)
-    val obtained = Tree.fromList(new_list, 0, new_list.size-1)
+    val obtained = Tree.fromList(new_list)
     val expected = Tree.Branch(Tree.Branch(Tree.Leaf(3),Tree.Leaf(8),2),Tree.Branch(Tree.Leaf(-1),Tree.Leaf(10),0),9)
     assertEquals(obtained, expected)
   }
   test("empty list to tree") {
     var new_list = List()
-    val obtained = Tree.fromList(new_list, 0, new_list.size-1)
+    val obtained = Tree.fromList(new_list)
     val expected = Tree.Empty
     assertEquals(obtained, expected)
   }
